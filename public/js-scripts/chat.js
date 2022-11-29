@@ -13,9 +13,8 @@ var socket = io('http://localhost:3001');
 
 
 		function scrollAndCleanScreen(){
-			$('#areaMessages').animate({
-				scrollTop: $(this).height() // aqui introduz o numero de px que quer no scroll, neste caso é a altura da propria div, o que faz com que venha para o fim
-			}, 100);
+			const altura = document.getElementById('messages')
+			altura.scrollTop = altura.scrollHeight;
 		}
 
 		function addMessages(message){
@@ -33,3 +32,15 @@ var socket = io('http://localhost:3001');
 		function sendMessage(message){
 			$.post('http://localhost:3001/messages', message)
 		}
+
+function showModal(){
+	const modal = document.getElementById('modalChat');
+	const actualStyle = modal.style.display;
+
+	if(actualStyle == 'block'){
+		modal.style.display = 'none';
+	}else{
+		modal.style.display = 'block';
+	}
+	console.log('aqui')
+}

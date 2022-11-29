@@ -15,12 +15,11 @@ const PORT = 3001;
 
 	app.use(express.static('./public')); // INDICANDO O LOCAL DOS ARQUIVOS ESTÁTICOS, NO CASO O INDEX.HTML
 
-
 	httpServer.listen(PORT, () => {
 		console.log(`Server started on port: ${PORT}`);
 	});
 
-	io.on('connection', socket =>{
+	export const socket = io.on('connection', socket =>{
 		console.log(`a user is connected ${socket.id}`);
 	});
 
